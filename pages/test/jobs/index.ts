@@ -9,18 +9,19 @@ export const getServerSideProps = async () => {
         companySkills: true,
         dismissedListingHashes: [],
         fetchJobDesc: true,
-        jobTitle: "Business Analyst",
+        jobTitle: "",
+        postingDateRange: "",
         locations: [],
         numJobs: 10,
         previousListingHashes: []
     }
 
     const res = await jobsService.getJobs(initialPayload);
-    const jobs = res.data;
+    const initialJobs = res.data;
 
     return {
         props: {
-            jobs
+            initialJobs
         }
     }
 }

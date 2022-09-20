@@ -11,4 +11,6 @@ export interface JobsRequestPayload {
     locations: Locations[];
     numJobs: number;
     previousListingHashes: [];
+    jobType?: string[];
+    postingDateRange: string;
 }

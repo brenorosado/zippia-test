@@ -9,7 +9,7 @@ export const JobCardContainer = styled.article<JobCardProps>`
     display: flex;
     gap: clamp(5px, 0.26vw, 0.26vw);
     padding: clamp(5px, 0.26vw, 0.26vw);
-    width: clamp(360px, 20vw, 20vw);
+    width: clamp(360px, 25vw, 25vw);
     height: clamp(280px, 15vw, 15vw);
     overflow: hidden;
     border-radius: clamp(5px, 0.26vw, 0.26vw);

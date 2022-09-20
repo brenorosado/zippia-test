@@ -31,7 +31,8 @@ export const JobCard = ({ jobData, selected, onSelect }) => {
         .replaceAll("<ul>", "")
         .replaceAll("</ul>", "")
         .replaceAll("<li>", "")
-        .replaceAll("</li>", "");
+        .replaceAll("</li>", "")
+        .replaceAll("<br />", "");
 
     return (
         <S.JobCardContainer onClick={() => onSelect()} selected={selected}>
@@ -45,7 +46,11 @@ export const JobCard = ({ jobData, selected, onSelect }) => {
                         </div>
                     )}
                 </S.CompanyLogoContainer>
-                <span>{companyZippiaOverallScore.toFixed(1)} <strong><AiFillStar/></strong></span>
+                {companyZippiaOverallScore && (
+                    <span>
+                        {companyZippiaOverallScore.toFixed(1)} <strong><AiFillStar/></strong>
+                    </span>
+                )}
             </S.CompanyInfoContainer>
             <S.JobDetailsContainer>
                 <S.JobSummaryContainer>
