@@ -9,8 +9,8 @@ export const JobCardContainer = styled.article<JobCardProps>`
     display: flex;
     gap: clamp(5px, 0.26vw, 0.26vw);
     padding: clamp(5px, 0.26vw, 0.26vw);
-    width: clamp(350px, 20vw, 20vw);
-    height: clamp(300px, 15vw, 15vw);
+    width: clamp(360px, 20vw, 20vw);
+    height: clamp(280px, 15vw, 15vw);
     overflow: hidden;
     border-radius: clamp(5px, 0.26vw, 0.26vw);
     cursor: pointer;
@@ -30,8 +30,8 @@ export const CompanyInfoContainer = styled.div`
         display: flex;
         align-items: center;
         justify-content: space-between;
-        gap: 3px;
-        font-size: 13px;
+        gap: clamp(3px, 0.15625vw, 0.15625vw);
+        font-size: clamp(13px, 0.677vw, 0.677vw);
     
         strong {
             padding-top: 4px;
@@ -55,9 +55,9 @@ export const CompanyLogoContainer = styled.div`
         align-items: center;
         background: ${({ theme }) => theme.colors.secondary};
         color: white;
-        border-radius: 5px;
+        border-radius: clamp(5px, 0.26vw, 0.26vw);
         font-weight: bold;
-        font-size: 24px;
+        font-size: clamp(24px, 1.26vw, 1.26vw);
     }
 
     img {
@@ -81,7 +81,7 @@ export const JobSummaryContainer = styled.div`
     h4 {
         font-size: clamp(18px, 0.94vw, 0.94vw);
         font-weight: 500;
-        margin-bottom: clamp(5px, 0.26vw, 0,26vw);
+        margin-bottom: clamp(10px, 0.52vw, 0.52vw);
     }
 
     span {
@@ -93,11 +93,29 @@ export const JobSummaryContainer = styled.div`
     p {
         font-size: clamp(14px, 0.73vw,  0.73vw);
     }
+
+    a {
+        background: #f7f8f9;
+        white-space: nowrap;
+        font-size: 14px;
+        padding: clamp(5px, 0.26vw, 0.26vw) clamp(10px, 0.52vw, 0.52vw);
+        border-radius: clamp(5px, 0.26vw, 0.26vw);
+        transition: background 0.1s;
+
+        :hover {
+            background: #e1e1e1;
+        }
+    
+        strong {
+            padding-top: 5px;
+            color: ${({ theme }) => theme.colors.primary};
+        }
+    }
 `;
 
 export const JobDescription = styled.div`
     width: 100%;
-    height: 28%;
+    height: 22%;
     overflow: hidden;
     
     p {

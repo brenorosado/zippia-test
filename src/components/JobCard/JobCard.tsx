@@ -1,5 +1,6 @@
 import * as S from "./styles";
 import { AiFillStar } from "react-icons/ai";
+import { BiLinkExternal } from "react-icons/bi";
 
 export const JobCard = ({ jobData, selected, onSelect }) => {
     const { 
@@ -15,7 +16,8 @@ export const JobCard = ({ jobData, selected, onSelect }) => {
         postedDate,
         benefits,
         OBJtitleDisplay,
-        location
+        location,
+        OBJurl
     } = jobData;
 
     const offersBenefits = benefits.length > 0;
@@ -26,6 +28,10 @@ export const JobCard = ({ jobData, selected, onSelect }) => {
         .replaceAll("</b>", "")
         .replaceAll("<p>", "")
         .replaceAll("</p>", "")
+        .replaceAll("<ul>", "")
+        .replaceAll("</ul>", "")
+        .replaceAll("<li>", "")
+        .replaceAll("</li>", "");
 
     return (
         <S.JobCardContainer onClick={() => onSelect()} selected={selected}>
@@ -45,7 +51,21 @@ export const JobCard = ({ jobData, selected, onSelect }) => {
                 <S.JobSummaryContainer>
                     <h4>{jobTitle}</h4>
                     <span>{companyName}</span>
-                    <p>{`${OBJtitleDisplay}, ${location}`}</p>
+                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                        <div>
+                            <p>{`${OBJtitleDisplay}, ${location}`}</p>
+                        </div>
+                        {OBJurl && (
+                            <div>
+                                <a 
+                                    href={OBJurl}
+                                    target="_blank"
+                                >
+                                    Opens new tab <strong><BiLinkExternal /></strong>
+                                </a>
+                            </div>
+                        )}
+                    </div>
                 </S.JobSummaryContainer>
                 <S.JobDescription>
                     <p>{description}</p>
