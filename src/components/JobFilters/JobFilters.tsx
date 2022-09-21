@@ -1,5 +1,7 @@
 import { FilterWithOptions } from "../FilterWithOptions/FilterWithOptions";
 import * as S from "./styles";
+import { AiOutlineSortAscending } from "react-icons/ai";
+import { RolesInputSearch } from "../RolesInputSearch/RolesInputSearch";
 
 const postingDateRangeOptions = [
     { label: "Past Day", value: "1d" },
@@ -41,9 +43,18 @@ const distanceOptions = [
     { label: "75 Miles", value: "75m" }
 ];
 
-export const JobFilters = ({ updateFilters, filters }) => {
+export const JobFilters = ({ updateFilters, filters, sorting, setSorting }) => {
     return (
-        <S.FiltersContainer>
+        <S.FiltersContainer sorting={sorting}>
+            <RolesInputSearch
+                updateFilters={updateFilters}
+            />
+            <button onClick={(e) => {
+                    e.preventDefault();
+                    setSorting(prevState => !prevState);
+                }}>
+                <strong><AiOutlineSortAscending/></strong> Ordenate By Company Name
+            </button>
             <FilterWithOptions
                 label="Distance"
                 filter="radiusCategory"

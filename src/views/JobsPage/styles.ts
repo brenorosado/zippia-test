@@ -5,6 +5,6 @@ export const JobsPageContainer = styled.main`
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px;
-    padding: 10px;
+    gap: clamp(10px, 0.52vw, 0.52vw);
+    padding: clamp(10px, 0.52vw, 0.52vw);
 `;

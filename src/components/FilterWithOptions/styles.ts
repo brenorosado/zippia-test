@@ -6,14 +6,15 @@ interface FilterProps {
 }
 
 export const FilterLabel = styled.div<FilterProps>`
-    border: 1px solid #e1e1e1;
-    padding: 8px;
+    border: clamp(1px, 0.05vw, 0.05vw) solid #e1e1e1;
+    padding: clamp(8px, 0.4166vw, 0.4166vw);
+    font-size: clamp(16px, 0.833vw, 0.833vw);
     color: ${({ selected, theme }) => 
         selected ? "white" : theme.colors.primary
     };
     font-weight: 500;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: clamp(5px, 0.26vw, 0.26vw);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -32,8 +33,8 @@ export const FilterLabel = styled.div<FilterProps>`
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 15px;
-        height: 15px;
+        width: clamp(15px, 0.78125vw, 0.78125vw);
+        height: clamp(15px, 0.78125vw, 0.78125vw);
         transition: all 0.2s;
         transform: rotate(0deg);
         ${({ showOptions }) => showOptions && "transform: rotate(180deg);"}
@@ -55,14 +56,14 @@ export const OptionsOverlay = styled.div`
 
 export const OptionsModal = styled.div`
     background: white;
-    padding: 20px;
+    padding: clamp(20px, 1.04vw, 1.04vw);
     width: clamp(360px, 20vw, 20vw);
-    border: 1px solid #e1e1e1;
-    box-shadow: 0 0 20px #e1e1e1;
-    border-radius: 10px;
+    border: clamp(1px, 0.05vw, 0.05vw) solid #e1e1e1;
+    box-shadow: 0 0 clamp(20px, 1.04vw, 1.04vw) #e1e1e1;
+    border-radius: clamp(10px, 0.52vw, 0.52vw);
     display: flex;
     flex-direction: column;
-    gap: 25px;
+    gap: clamp(25px, 1.3vw, 1.3vw);
 `;
 
 export const TitleContainer = styled.div`
@@ -71,20 +72,20 @@ export const TitleContainer = styled.div`
     align-items: center;
 
     h4 {
-        font-weight: 500px;
-        font-size: 18px;
+        font-weight: 500;
+        font-size: clamp(18px, 0.9375vw, 0.9375vw);
     }
 
     span {
         font-weight: bold;
         cursor: pointer;
-        padding: 5px;
+        padding: clamp(5px, 0.26vw, 0.26vw);
     }
 `;
 
 export const OptionsContainer = styled.div`
     display: flex;
-    gap: 10px;
+    gap: clamp(10px, 0.52vw, 0.52vw);
     flex-wrap: wrap;
 `;
 
@@ -97,14 +98,14 @@ export const OptionTag = styled.span<OptionProps>`
     ${({ selected }) => selected && "color: white;"}
 
     transition: all 0.2s;
-    padding: 5px 10px;
-    border-radius: 15px;
+    padding: clamp(5px, 0.26vw, 0.26vw) clamp(10px, 0.52vw, 0.52vw);
+    border-radius: clamp(15px, 0.78125vw, 0.78125vw);
     font-weight: 500;
     cursor: pointer;
 
     small {
         font-weight: 500;
-        font-size: 16px;
+        font-size: clamp(16px, 0.83vw, 0.83vw);
     }
 `;
 
@@ -115,10 +116,10 @@ export const ActionsContainer = styled.div`
     button {
         cursor: pointer;
         border: none;
-        font-size: 16px;
+        font-size: clamp(16px, 0.83vw, 0.83vw);
         font-weight: bold;
         background: white;
-        padding: 5px;
+        padding: clamp(5px, 0.26vw, 0.26vw);
 
         :first-child {
             color: grey;

@@ -97,7 +97,7 @@ export const JobSummaryContainer = styled.div`
     a {
         background: #f7f8f9;
         white-space: nowrap;
-        font-size: 14px;
+        font-size: clamp(14px, 0.73vw, 0.73vw);
         padding: clamp(5px, 0.26vw, 0.26vw) clamp(10px, 0.52vw, 0.52vw);
         border-radius: clamp(5px, 0.26vw, 0.26vw);
         transition: background 0.1s;

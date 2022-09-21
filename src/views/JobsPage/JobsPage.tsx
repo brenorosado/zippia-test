@@ -20,18 +20,18 @@ const initialPayload: JobsRequestPayload = {
 
 const reducer = (state, record) => ({ ...state, ...record });
 
-
 export const JobsPage = ({ initialJobs }) => {
     const [jobs, setJobs] = useState(initialJobs);
     const [selectedJob, setSelectedJob] = useState(initialJobs.jobs[0]);
     const [filters, dispatch] = useReducer(reducer, initialPayload);
+    const [sorting, setSorting] = useState<boolean>(true);
     
     const fetchJobs = async (reqFilters) => {
         try {
             const res = await jobsService.getJobs(reqFilters);
             const newJobs = res.data;
-            console.log("newJobs", newJobs);
             setJobs(newJobs);
+            setSelectedJob(newJobs.jobs[sorting ? 0 : 9]);
         } catch (e) {
             console.log(e);
         }
@@ -44,6 +44,9 @@ export const JobsPage = ({ initialJobs }) => {
         fetchJobs(newFilters);
     };
 
+    const jobsArray = jobs.jobs.map(i => i);
+    const jobsSortedByDescCompanyNames = jobsArray.reverse();
+
     return (
         <>
             <Head>
@@ -51,14 +54,15 @@ export const JobsPage = ({ initialJobs }) => {
                 <meta name="Zippia Jobs" content="Zippia Jobs" />
                 <link rel="icon" href="/zippia-logo.svg" />
             </Head>
-            
             <S.JobsPageContainer>
-                <JobFilters 
+                <JobFilters
+                    sorting={sorting}
+                    setSorting={setSorting}
                     filters={filters}
                     updateFilters={updateFilters}
                 />
                 <JobsList
-                    jobs={jobs.jobs}
+                    jobs={sorting ? jobs.jobs : jobsSortedByDescCompanyNames}
                     setSelectedJob={setSelectedJob}
                     selectedJob={selectedJob}
                     />

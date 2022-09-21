@@ -5,6 +5,7 @@ interface Locations {
 
 export interface JobsRequestPayload {
     companySkills: boolean;
+    locationSort?: boolean;
     dismissedListingHashes: string[];
     fetchJobDesc: boolean;
     jobTitle: string;
@@ -13,4 +14,5 @@ export interface JobsRequestPayload {
     previousListingHashes: [];
     jobType?: string[];
     postingDateRange: string;
+    titles?: string[];
 }
